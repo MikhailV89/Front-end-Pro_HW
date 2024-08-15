@@ -1,0 +1,31 @@
+{
+    "name": "front-end-pro_hwt",
+    "version": "1.0.0",
+    "description": "-",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prettier": "npx prettier . --write"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MikhailV89/Front-end-Pro_HW.git"
+    },
+    "keywords": [
+        "HW"
+    ],
+    "author": "Mike Vasilchenko",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MikhailV89/Front-end-Pro_HW/issues"
+    },
+    "homepage": "https://github.com/MikhailV89/Front-end-Pro_HW#readme",
+    "dependencies": {
+        "lodash": "^4.17.21"
+    },
+    "devDependencies": {
+        "eslint": "^8.2.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "prettier": "3.3.3"
+    }
+}
