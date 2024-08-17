@@ -4,6 +4,9 @@ module.exports = {
     strict: 'off',
     'no-undef': 'off',
     'no-alert': 'off',
-    'no-console': 'off'
+    'no-console': 'off',
+    'no-plusplus': 'off',
+    'prefer-template': 'off',
+    'no-unused-vars': 'off',
   },
-}
+};
