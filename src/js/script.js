@@ -1,9 +1,16 @@
 'use strict';
 
-const num1 = +prompt('Write first number');
-const num2 = +prompt('Write second number');
-const num3 = +prompt('Write third number');
+function generateKey(length, characters) {
+  let key = '';
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    key += characters[randomIndex];
+  }
 
-const result = (num1 + num2 + num3) / 3;
+  return key;
+}
 
-alert(`Cереднє арифметичне трьох чисел: ${result}`);
+const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+
+const key = generateKey(16, characters);
+console.log(key);
