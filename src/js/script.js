@@ -1,9 +1,13 @@
 'use strict';
 
-const num1 = +prompt('Write first number');
-const num2 = +prompt('Write second number');
-const num3 = +prompt('Write third number');
+function removeElement(arr, item) {
+  const indexArray = arr.indexOf(item);
 
-const result = (num1 + num2 + num3) / 3;
+  if (indexArray !== -1) {
+    arr.splice(indexArray, 1);
+  }
+}
 
-alert(`Cереднє арифметичне трьох чисел: ${result}`);
+const array = [1, 2, 3, 4, 5, 6, 7];
+removeElement(array, 5);
+console.log(array);
