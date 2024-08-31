@@ -1,9 +1,37 @@
 'use strict';
 
-const num1 = +prompt('Write first number');
-const num2 = +prompt('Write second number');
-const num3 = +prompt('Write third number');
+function mainFunction(callback) {
+  const num = +prompt('Write number');
+  const pow = +prompt('Write pow');
 
-const result = (num1 + num2 + num3) / 3;
+  callback(num, pow);
+}
 
-alert(`Cереднє арифметичне трьох чисел: ${result}`);
+function exponentiation(num1, num2) {
+  const result = num1 ** num2;
+
+  alert(`Number ${num1} raise to the power ${num2} = ${result}`);
+}
+
+function multiplay(num1, num2) {
+  const result = num1 * num2;
+
+  alert(`First number ${num1} * Second number ${num2} = ${result}`);
+}
+
+function division(num1, num2) {
+  const result = num1 / num2;
+
+  alert(`First number ${num1} / Second number ${num2} = ${result}`);
+}
+
+function modulo(num1, num2) {
+  const result = num1 % num2;
+
+  alert(`Remainder of division ${num1} % ${num2} = ${result}`);
+}
+
+mainFunction(exponentiation);
+mainFunction(multiplay);
+mainFunction(division);
+mainFunction(modulo);
