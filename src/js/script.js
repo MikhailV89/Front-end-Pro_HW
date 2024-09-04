@@ -1,9 +1,22 @@
 'use strict';
 
-const num1 = +prompt('Write first number');
-const num2 = +prompt('Write second number');
-const num3 = +prompt('Write third number');
+const arrayFromUser = () => {
+  const arrLength = +prompt('Write array length');
+  const arr = [];
 
-const result = (num1 + num2 + num3) / 3;
+  for (let i = 0; i < arrLength; i++) {
+    const arrElements = +prompt(`Write array element ${i + 1}`);
+    arr.push(arrElements);
+  }
+  console.log(`Array: ${arr}`);
 
-alert(`Cереднє арифметичне трьох чисел: ${result}`);
+  arr.sort((a, b) => a - b);
+  console.log(`Sorted array: ${arr}`);
+
+  arr.splice(1, 3);
+  console.log(`Changed array: ${arr}`);
+
+  return arr;
+};
+
+arrayFromUser();
