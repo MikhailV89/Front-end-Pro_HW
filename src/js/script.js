@@ -1,9 +1,25 @@
 'use strict';
 
-const num1 = +prompt('Write first number');
-const num2 = +prompt('Write second number');
-const num3 = +prompt('Write third number');
+const someFunc = () => {
+  for (let i = 0; i < 3; i++) {
+    var text1 = 'text with var';
+    let text2 = 'text with let';
+    const text3 = 'text with const';
 
-const result = (num1 + num2 + num3) / 3;
+    console.log(`${text1}, ${text2}, ${text3}`);
+  }
 
-alert(`Cереднє арифметичне трьох чисел: ${result}`);
+  console.log(text1);// Обьявлена через var и имеет функциональную либо глобальную область видимости.
+  // Значит видна в пределах всей функции. При использовании var поднимается на начало области видимости
+  console.log(text2);// Переменная обьявленная через let, в данном случае имеет блочную область
+                     // видимости и видна только внутри блока, в котором была объявлена. Хостинг доступен, но в блочной области видимости.
+                     // До обьявления переменная не доступна и попадает в Temporal Dead Zone.
+                     // В результате будет ошибка Reference error
+  console.log(text3); // Переменная обьявленная через const в данном случае имеет блочную область
+                      // видимости и видна только внутри блока, в котором была объявлена. Хостинг доступен, но в блочной области видимости
+                      // До обьявления переменная не доступна и попадает в Temporal Dead Zone.
+                       // В результате будет ошибка Reference error
+};
+
+
+someFunc();
