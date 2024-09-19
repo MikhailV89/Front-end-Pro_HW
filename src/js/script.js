@@ -1,9 +1,21 @@
 'use strict';
 
-const num1 = +prompt('Write first number');
-const num2 = +prompt('Write second number');
-const num3 = +prompt('Write third number');
+const user = {
+  'name': 'John',
+  'age': 30,
+};
 
-const result = (num1 + num2 + num3) / 3;
+function greet(greeting) {
+  console.log(`${greeting}, ${this.name}!`);
+}
 
-alert(`Cереднє арифметичне трьох чисел: ${result}`);
+function myBind(func, context, ...args) {
+  return function (...innerArgs) {
+    context.func = func;
+    const result = context.func(...args, ...innerArgs);
+    return result;
+  };
+}
+
+const greetUser = myBind(greet, user, 'Hello');
+greetUser();
