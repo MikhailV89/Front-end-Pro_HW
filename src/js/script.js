@@ -24,7 +24,6 @@ function insertWord(str) {
   };
 }
 
-// Тестування
 const insert = insertWord('hello world');
 
 console.log(insert('Odesa'));
