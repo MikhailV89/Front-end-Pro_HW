@@ -1,9 +1,18 @@
 'use strict';
 
-const num1 = +prompt('Write first number');
-const num2 = +prompt('Write second number');
-const num3 = +prompt('Write third number');
+const createSum = () => {
+  let sum = 0;
 
-const result = (num1 + num2 + num3) / 3;
+  function sumResult(num) {
+    sum += num;
+    return `sum (${num}) = ${sum}`;
+  }
 
-alert(`Cереднє арифметичне трьох чисел: ${result}`);
+  return sumResult;
+};
+
+const result = createSum();
+
+console.log(result(3));
+console.log(result(5));
+console.log(result(20));
