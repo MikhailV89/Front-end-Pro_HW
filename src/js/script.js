@@ -1,9 +1,23 @@
 'use strict';
 
-const num1 = +prompt('Write first number');
-const num2 = +prompt('Write second number');
-const num3 = +prompt('Write third number');
+const createTable = () => {
+  const length = 10;
+  const table = document.querySelector('table > tbody');
+  let count = 1;
 
-const result = (num1 + num2 + num3) / 3;
+  Array.from({ length }, () => {
+    const tr = document.createElement('tr');
 
-alert(`Cереднє арифметичне трьох чисел: ${result}`);
+    Array.from({ length }, () => {
+      const td = document.createElement('td');
+      td.innerText = count;
+      count++;
+      td.style.border = '1px solid black';
+      tr.append(td);
+    });
+
+    table.append(tr);
+  });
+};
+
+createTable();
