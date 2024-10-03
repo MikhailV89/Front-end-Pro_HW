@@ -1,9 +1,20 @@
 'use strict';
 
-const num1 = +prompt('Write first number');
-const num2 = +prompt('Write second number');
-const num3 = +prompt('Write third number');
+const appendEl = (parentEl = null, elementToAppend = null) => {
+  if (!parentEl || !elementToAppend) return;
+  parentEl.append(elementToAppend);
+};
+const getRandomNumber = () => {
+  const num = Math.floor(Math.random() * 10);
+  if (num === 0) return 1;
+  return num;
+};
 
-const result = (num1 + num2 + num3) / 3;
+const imagesGenerate = (imageNum) => {
+  const img = document.createElement('img');
+  img.src = './images/' + imageNum + '.jpg';
+  return img;
+};
 
-alert(`Cереднє арифметичне трьох чисел: ${result}`);
+const imageAppend = imagesGenerate(getRandomNumber());
+appendEl(document.body, imageAppend);
