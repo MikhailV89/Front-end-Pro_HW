@@ -1,0 +1,7 @@
+#sidebar {
+    background-color: navy;
+    width: 170px;
+    height: 60px;
+    position: absolute;
+    left: 250px;
+}

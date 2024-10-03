@@ -1,9 +1,22 @@
 'use strict';
 
-const num1 = +prompt('Write first number');
-const num2 = +prompt('Write second number');
-const num3 = +prompt('Write third number');
+const input = document.getElementById('thisInput');
+const sideDiv = () => {
+  let div = document.getElementById('sidebar');
+  if (!div) {
+    div = document.createElement('div');
+    div.id = 'sidebar';
+    document.body.append(div);
+  }
+  div.style.display = 'block';
+};
 
-const result = (num1 + num2 + num3) / 3;
+const hiddenDiv = () => {
+  const div = document.getElementById('sidebar');
+  if (div) {
+    div.style.display = 'none';
+  }
+};
 
-alert(`Cереднє арифметичне трьох чисел: ${result}`);
+input.addEventListener('focus', sideDiv);
+input.addEventListener('blur', hiddenDiv);
