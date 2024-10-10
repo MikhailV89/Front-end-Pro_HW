@@ -1,9 +1,34 @@
 'use strict';
 
-const num1 = +prompt('Write first number');
-const num2 = +prompt('Write second number');
-const num3 = +prompt('Write third number');
+(function () {
+  const generateList = (array) => {
+    const list = document.createElement('ul');
 
-const result = (num1 + num2 + num3) / 3;
+    const createListItems = (arr) => {
+      arr.forEach((value) => {
+        const item = document.createElement('li');
 
-alert(`Cереднє арифметичне трьох чисел: ${result}`);
+        if (Array.isArray(value)) {
+          item.appendChild(generateList(value));
+        } else {
+          item.textContent = value;
+        }
+
+        list.appendChild(item);
+      });
+    };
+
+    createListItems(array);
+
+    return list;
+  };
+
+  const array1 = [1, 2, 3];
+  const array2 = [1, 2, [1.1, 1.2, 1.3], 3, [1.1, 1.2]];
+
+  const list1 = generateList(array1);
+  const list2 = generateList(array2);
+
+  document.body.appendChild(list1);
+  document.body.appendChild(list2);
+}());
