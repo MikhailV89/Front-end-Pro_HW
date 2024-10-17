@@ -3,7 +3,7 @@
 (function () {
   const form = document.querySelector('[data-todo-form]');
   const todoItemBox = document.querySelector('[data-todo-items]');
-  const todoArr = [];
+  let todoArr = [];
   const fields = {};
   let isFormSubmitDisabled = true;
 
@@ -20,6 +20,23 @@
   const appendTodoItem = (element) => {
     todoItemBox.append(element);
   };
+
+  const saveToLocalStorage = () => {
+    localStorage.setItem('todos', JSON.stringify(todoArr));
+  };
+
+  const loadLocalStorage = () => {
+    const savedTodos = localStorage.getItem('todos');
+    if (savedTodos) {
+      todoArr = JSON.parse(savedTodos);
+      todoArr.forEach((todo) => {
+        const todoItem = createTodoItemBox(todo);
+        appendTodoItem(todoItem);
+      });
+    }
+  };
+
+  loadLocalStorage();
 
   const inputHandler = ({ target }) => {
     const formSubmitBtn = form.querySelector('button[type=submit]');
@@ -55,6 +72,7 @@
     const todoItem = createTodoItemBox(data);
     appendTodoItem(todoItem);
     todoArr.push(data);
+    saveToLocalStorage();
     form.reset();
 
     Object.keys(fields).forEach((key) => {
